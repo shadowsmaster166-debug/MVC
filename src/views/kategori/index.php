@@ -1,0 +1,1 @@
+<h1>hello from view kategori</h1>

@@ -1,0 +1,62 @@
+<?php
+use MyApp\Core\Message;
+
+$data = Message::getData();
+$namaBarang="";
+$jumlah="";
+$harga="";
+$kadaluarsa="";
+if($data){
+    $namaBarang=$data['nama_barang'];
+    $jumlah=$data['jumlah'];
+    $harga=$data['harga_satuan'];
+    $kadaluarsa=$data['kadaluarsa'];
+}
+
+Message::flash();
+?>
+<div class="row">
+    <div class="container col-50">
+        <h2 class="header">Input Barang</h2>
+        <form action="<?= BASEURL; ?>/barang/insert_barang" method="post">
+            <div class="row">
+                <div class="col-25">
+                    <label for="nama_barang">Nama Barang</label>
+                </div>
+                <div class="col-50">
+                    <input type="text" id="nama_barang" name="nama_barang" value="<?php $namaBarang ?>" placeholder="Nama Barang..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="jumlah">Jumlah</label>
+                </div>
+                <div class="col-25">
+                    <input type="number" id="jumlah" name="jumlah" value="<?php $jumlah ?>" placeholder="Jumlah Barang..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="harga_satuan">Harga Satuan</label>
+                </div>
+                <div class="col-25">
+                    <input type="number" id="harga_satuan" name="harga_satuan" value="<?php $harga ?>" placeholder="Harga Satuan Barang..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="kadaluar">Kadaluarsa</label>
+                </div>
+                <div class="col-25">
+                    <input type="date" id="kadaluarsa" name="kadaluarsa" value="<?php $kadaluarsa ?>" placeholder="Kadaluarsa Barang..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">&nbsp;</div>
+                <div class="col-75">
+                    <button type="submit" class="btn primary"><i class="fa-solid fa-floppy-disk"></i> Simpan</button>
+                </div>
+            </div>
+            </form>
+    </div>
+</div>
